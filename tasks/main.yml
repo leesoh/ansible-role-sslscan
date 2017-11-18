@@ -21,11 +21,11 @@
   become: true
   git:
     repo: https://github.com/rbsec/sslscan.git
-    dest: "{{ sslscan_git_location }}/sslscan-git"
+    dest: "{{ sslscan_git_location }}/sslscan"
     update: yes
 
 - name: Building sslscan
   become: true
   command: make static
   args:
-    chdir: "{{ git_location }}/sslscan-git"
+    chdir: "{{ sslscan_git_location }}/sslscan"
