@@ -1,0 +1,20 @@
+galaxy_info:
+  author: liam somerville
+  description: Installs SSLScan
+  company: N/A
+  license: BSD
+  min_ansible_version: 1.2
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+
+  galaxy_tags:
+    - security
+    - ssl
+    - pentest
+
+dependencies: []
