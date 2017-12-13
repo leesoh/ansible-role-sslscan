@@ -6,7 +6,7 @@ Ansible Galaxy role for SSLScan
 Requirements
 ------------
 
-None
+Role builds from source. Source repositories must be enabled in your sources.list.
 
 Role Variables
 --------------
