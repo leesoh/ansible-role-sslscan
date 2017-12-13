@@ -29,3 +29,10 @@
   command: make static
   args:
     chdir: "{{ sslscan_git_location }}/sslscan"
+
+- name: Creating symlink
+  become: true
+  file:
+    state: link
+    src: "{{ sslscan_git_location }}/sslscan/sslscan"
+    path: /usr/bin/sslscan
