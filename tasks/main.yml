@@ -1,5 +1,14 @@
 ---
+- name: Cloning repo
+  become: true
+  git:
+    repo: https://github.com/rbsec/sslscan.git
+    dest: "{{ sslscan_git_location }}/sslscan"
+    update: yes
+  register: sslscan
+
 - name: Installing dependencies
+  when: sslscan.changed
   become: true
   when: ansible_os_family ==  "Debian"
   apt:
@@ -12,25 +21,21 @@
     - zlib1g-dev
 
 - name: Build dependencies
+  when: sslscan.changed
   become: true
   apt:
     pkg: openssl
     state: build-dep
 
-- name: Cloning repo
-  become: true
-  git:
-    repo: https://github.com/rbsec/sslscan.git
-    dest: "{{ sslscan_git_location }}/sslscan"
-    update: yes
-
 - name: Building sslscan
+  when: sslscan.changed
   become: true
   command: make static
   args:
     chdir: "{{ sslscan_git_location }}/sslscan"
 
 - name: Creating symlink
+  when: sslscan.changed
   become: true
   file:
     state: link
