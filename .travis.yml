@@ -6,12 +6,12 @@ before_install:
     - sudo apt-get update -qq
 
 install:
-    # Install Ansible
     - pip install ansible
 
 script:
     - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
     - ansible-playbook -i tests/inventory tests/test.yml --connection=local
+    - sslscan --help
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
