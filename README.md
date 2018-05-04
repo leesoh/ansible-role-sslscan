@@ -16,22 +16,21 @@ sslscan_git_location: '/opt'
 Dependencies
 ------------
 
-None
+leesoh.git
 
 Example Playbook
 ----------------
 
-Get going with:
-
-    - hosts: servers
-      roles:
-         - { role: leesoh.sslscan }
+- hosts: servers
+  roles:
+      - { role: leesoh.sslscan }
 
 License
 -------
 
-BSD
+BSD-3
 
 Author Information
 ------------------
+
 SSLScan: https://github.com/rbsec/sslscan
