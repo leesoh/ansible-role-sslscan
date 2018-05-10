@@ -8,9 +8,8 @@
   register: sslscan
 
 - name: Installing dependencies
-  when: sslscan.changed
   become: true
-  when: ansible_os_family ==  "Debian"
+  when: ansible_os_family ==  "Debian" and sslscan.changed
   apt:
     name: "{{ item }}"
     update_cache: yes
@@ -21,7 +20,7 @@
     - zlib1g-dev
 
 - name: Build dependencies
-  when: sslscan.changed
+  when: ansible_os_family ==  "Debian" and sslscan.changed
   become: true
   apt:
     pkg: openssl
