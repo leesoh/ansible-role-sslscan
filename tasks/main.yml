@@ -40,4 +40,4 @@
   file:
     state: link
     src: "{{ sslscan_git_location }}/sslscan/sslscan"
-    path: /usr/bin/sslscan
+    path: /usr/local/bin/sslscan
