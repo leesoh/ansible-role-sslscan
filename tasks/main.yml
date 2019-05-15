@@ -11,13 +11,9 @@
   become: true
   when: ansible_os_family ==  "Debian" and sslscan.changed
   apt:
-    name: "{{ item }}"
+    name: ['build-essential', 'zlib1g-dev']
     update_cache: yes
     state: latest
-
-  with_items:
-    - build-essential
-    - zlib1g-dev
 
 - name: Build dependencies
   when: ansible_os_family ==  "Debian" and sslscan.changed
